@@ -1,15 +1,20 @@
-NAME	=	so_long
+NAME	=	1so_long
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -Imlx
+CFLAGS	=	-Wall -Wextra -Werror 
+MLXFLAGS=	-Lmlx -lmlx -framework OpenGL -framework AppKit
 
 OBJDIR	=	obj
 SRCDIR	=	src
 LIBDIR	=	libft
+MLXDIR	=	mlx
 
 HEADER	=	so_long.h
 
-SRC		= 	$(LIBDIR)/ft_putchar_fd.c
+MLX		=	libmlx.dylib
+LIBFT	=	libft.a
+
+SRC		= 	main.c
 
 OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
@@ -19,29 +24,36 @@ OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJ)
-			@printf "Compilation OK! \n"
+			@printf "\nLibft compiling ...\n"
+			@make -C $(LIBDIR)/
+			@cp $(LIBDIR)/$(LIBFT) ./
+			@printf "\nMinilibX compiling ...\n"
+			@make -C $(MLXDIR)/
+			@cp $(MLXDIR)/$(MLX) ./
+			$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+			@printf "\nCompilation OK! \n"
 
 $(OBJDIR)/%.o: 	%.c $(HEADER)
 				@printf "Sources compiling... \n"
-				@$(CC) $(CFLAGS) -c $< -o $@
+				$(CC) $(CFLAGS) -Imlx -c $< -o $@
 $(OBJDIR)/$(SRCDIR)/%.o: 	$(SRCDIR)/%.c $(HEADER)
 				@printf "Sources compiling... \n"
-				@$(CC) $(CFLAGS) -c $< -o $@
-$(OBJDIR)/$(LIBDIR)/%.o: 	$(LIBDIR)/%.c $(HEADER)
-							@printf "Libft compiling... \n"
-							@$(CC) $(CFLAGS) -c $< -o $@
+				$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 $(OBJDIR) :
-	@mkdir $@ $@/$(LIBDIR) $@/$(SRCDIR)
+	@mkdir $@ $@/$(SRCDIR)
 
 $(OBJ) : | $(OBJDIR)
 
 clean:
-	@printf "clean... \n"
+	@printf "\nclean... \n"
+	@make fclean -C $(LIBDIR)/
+	@make clean -C $(MLXDIR)/
 	@rm -rf $(OBJDIR)
 
 fclean: clean
-	@printf "fclean... \n"
-	@rm -rf $(NAME)
+	@printf "\nfclean... \n"
+	@rm -f $(NAME)
+	@rm -f $(MLX)
 
 re: fclean all

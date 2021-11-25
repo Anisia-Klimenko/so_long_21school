@@ -6,7 +6,7 @@
 /*   By: acristin <acristin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 11:46:13 by acristin          #+#    #+#             */
-/*   Updated: 2021/11/09 15:52:51 by acristin         ###   ########.fr       */
+/*   Updated: 2021/11/25 10:09:17 by acristin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,5 @@ void	ft_putstr_fd(char *s, int fd)
 				i++;
 			}
 		}
-		else
-			ft_putstr_fd("(null)", 1);
 	}
 }

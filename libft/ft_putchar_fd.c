@@ -6,18 +6,14 @@
 /*   By: acristin <acristin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 11:45:57 by acristin          #+#    #+#             */
-/*   Updated: 2021/11/09 15:53:24 by acristin         ###   ########.fr       */
+/*   Updated: 2021/11/25 10:09:35 by acristin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../ft_printf.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
 	if (fd > 0)
-	{
 		write(fd, &c, 1);
-		g_len += 1;
-	}
 }
