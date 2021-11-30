@@ -1,6 +1,6 @@
 # so_long_21school
 
-2D игра на С, с использованием библиотеки MinilibX (подробнее про MinilibX: https://harm-smits.github.io/42docs/libs/minilibx/events.html)
+2D игра на С, с использованием библиотеки MinilibX (подробнее про MinilibX: https://harm-smits.github.io/42docs/)
 
 Задача состоит в том, чтобы закончить игру за минимальное число ходов.
 
