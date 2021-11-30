@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anisiaklimenko <anisiaklimenko@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 17:38:03 by anisiaklime       #+#    #+#             */
-/*   Updated: 2021/11/30 17:38:04 by anisiaklime      ###   ########.fr       */
+/*   Updated: 2021/11/30 21:08:41 by anisiaklime      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "mlx/mlx.h"
 # include "libft/libft.h"
@@ -56,6 +56,8 @@ typedef struct s_textures
 	t_image	player_right;
 	t_image	obsticles;
 	t_image	cplay;
+	t_image	black;
+	t_image	boss;
 	int		tocollect;
 }	t_textures;
 
